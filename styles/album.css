@@ -1,0 +1,25 @@
+.album-view-song-list {
+     width: 90%;
+     margin: 1.5rem auto;
+     font-weight: 300;
+     font-size: 0.75em;
+     border-collapse: collapse;
+ }
+ 
+ .album-view-song-item {
+     height: 3rem;
+     /* #1 */
+     border-bottom: 1px solid rgba(255,255,255,0.5);
+ }
+ 
+ .song-item-number {
+     width: 5%;
+ }
+ 
+ .song-item-title {
+     width: 85%;
+ }
+ 
+ .song-item-duration {
+     width: 5%;
+ }
