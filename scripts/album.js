@@ -30,6 +30,22 @@ var albumMarconi = {
     ]
 };
 
+//Assignment album object
+var albumAssignment = {
+    title: 'Assignment 10',
+    artist: 'Anonymous',
+    label: 'Bloc',
+    year: '2017',
+    albumArtUrl: 'https://yt3.ggpht.com/0v8T0CTAv8VPxA5lJtz-tqJe-tR-3VQc0ONhD6Az2RWjNRnwh5QQzPYz5I7wbYljU_tQjZ2ok2W59_v_=s900-nd-c-c0xffffffff-rj-k-no',
+    songs: [
+        { title: 'Song One', duration: '3:00' },
+        { title: 'Song Two', duration: '3:30' },
+        { title: 'Song Three', duration: '4:00'},
+        { title: 'Song Five', duration: '76:22' },
+        { title: 'Song Four', duration: '2:00'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -55,6 +71,7 @@ var setCurrentAlbum = function(album) {
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
      albumImage.setAttribute('src', album.albumArtUrl);
+     
 
      // #3
      albumSongList.innerHTML = '';
@@ -63,8 +80,24 @@ var setCurrentAlbum = function(album) {
      for (var i = 0; i < album.songs.length; i++) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
+     // Assignment 10
+     document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+        if (album === albumPicasso) {
+            setCurrentAlbum(albumMarconi);
+        }
+        
+        if (album === albumMarconi) {
+            setCurrentAlbum(albumAssignment);
+        }
+        
+        if (album === albumAssignment) {
+            setCurrentAlbum(albumPicasso);
+        }
+    });
  };
 
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
  };
+ 
+ 
