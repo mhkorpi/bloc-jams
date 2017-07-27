@@ -37,7 +37,7 @@ body {
      /* #3 */
      text-decoration: none;
  }
- 
+
  .links-container .navbar-link {
      display: table-cell;
      position: relative;
@@ -55,12 +55,12 @@ body {
      text-decoration: none;
      cursor: pointer;
  }
- 
+
    /* #5 */
  .links-container .navbar-link:hover {
      color: rgb(233,50,117);
  }
- 
+
  .links-container .navbar-link:active {
      background-color: white;
  }
