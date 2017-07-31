@@ -82,6 +82,35 @@ var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
 }
 
+var nextSong = function () {
+
+    var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
+    
+    currentSongFromAlbum = currentSongFromAlbum === currentAlbum.songs[currentAlbum.songs.length - 1] 
+                           ? currentAlbum.songs[0]
+                           : currentAlbum.songs[currentSongIndex + 1];
+
+    updatePlayerBarSong();
+
+    
+}
+
+var previousSong = function () {
+
+    var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
+
+    if (currentSongFromAlbum === null) {
+        currentSongFromAlbum = currentAlbum.songs[0];
+    }
+
+    currentSongFromAlbum = currentSongFromAlbum === currentAlbum.songs[0]
+                           ? currentAlbum.songs[currentAlbum.songs.length - 1]
+                           : currentAlbum.songs[currentSongIndex - 1];
+
+    updatePlayerBarSong();
+
+}
+
 var updatePlayerBarSong = function () {
     $('.song-name').text(currentSongFromAlbum.title);
     $('.artist-name').text(currentAlbum.artist);
@@ -98,6 +127,11 @@ var currentAlbum = null;
 var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
 
+var $previousButton = $('.main-controls .previous');
+var $nextButton = $('.main-controls .next');
+
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
+    $previousButton.click(previousSong);
+    $nextButton.click(nextSong);
 });
